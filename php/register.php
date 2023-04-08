@@ -31,22 +31,23 @@ $stmt->execute();
 echo "[+]Added a new row!";
 
 
-$mongodClient = new MongoDB\Driver\Manager('mongodb://localhost:27017/');
 
+$bulk = new MongoDB\Driver\BulkWrite;
 
-$db = $mongodClient->additionDetails;
-$collection = $db->personalInfo;
-
-$document=array(
+$data = [
 	"fullname"=>$fullname,
 	"email"=>$email,
 	"username"=>$username,
 	"phone"=>$phone,
 	"data"=>$date,
 	"age"=>$age
-);
+];
 
-$collection->insertOne($document);
+$_id1 = $bulk->insert($data);
+var_dump($_id1);
+
+$manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+$result = $manager->executeBulkWrite('db.personalInfo',$bulk);
 
 echo "[+]Successfully created!";
 
