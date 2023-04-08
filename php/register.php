@@ -31,7 +31,24 @@ $stmt->execute();
 echo "[+]Added a new row!";
 
 
-$mongodClient = new MongoDB\Client('mongodb://localhost:27017');
+$mongodClient = new MongoDB\Driver\Manager('mongodb://localhost:27017/');
+
+
+$db = $mongodClient->additionDetails;
+$collection = $db->personalInfo;
+
+$document=array(
+	"fullname"=>$fullname,
+	"email"=>$email,
+	"username"=>$username,
+	"phone"=>$phone,
+	"data"=>$date,
+	"age"=>$age
+);
+
+$collection->insertOne($document);
+
+echo "[+]Successfully created!";
 
 $stmt->close();
 $conn->close();
