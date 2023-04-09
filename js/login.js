@@ -1,6 +1,19 @@
 $(document).ready(function(){
 
 
+	var sessionId = localStorage.getItem("sessionId");
+	if(sessionId != null){
+		$.post("http://localhost:5000/php/get-session-id.php",{
+			sessionId:sessionId
+		},function(data, status){
+			if(data == "[-]Session Expired"){
+				localStorage.removeItem("sessionId");
+			}else{
+				window.location.href = "http://localhost:5000/profile.html";
+			};
+		});
+	}
+
 	function validateChars(username){
 		for(var i = 0;i < username.length;i++){
 			if(username[i] == ")" || username[i] == "(" || username[i] == "@" || username[i] == "\'" || username[i] == "\"" || username[i] == "#" || username[i] == "]" || username[i] == "[" || username[i] == ";" || username[i] == ","){
@@ -59,7 +72,14 @@ $(document).ready(function(){
 					password:password
 				},(pdata, status) => {
 					if(pdata == 1 || pdata == "1"){
-						window.location.href = "http://localhost:5000/profile.html";
+						$.post("http://localhost:5000/php/set-session-id.php",{
+							username:username,
+							password:password
+						},function(sdata, status){
+							localStorage.setItem("sessionId",sdata);
+							window.location.href = "http://localhost:5000/profile.html";
+						});
+						
 					}else{
 						$("#password-input").css("border-color","red");
 						$(".incorrect-password").css("display","block");

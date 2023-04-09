@@ -1,5 +1,29 @@
 $(document).ready(function(){
 
+
+	var sessionId = localStorage.getItem("sessionId");
+
+	if(sessionId != null){
+		$.post("http://localhost:5000/php/get-session-id.php",{
+			sessionId:sessionId
+		},function(data, status){
+			if(data == "[-]Session Expired"){
+				localStorage.removeItem("sessionId");
+				windows.location.href = "http://localhost:5000/login.html";
+			}else{
+				alert("haha");
+			}
+		});
+	}else{
+		window.location.href = "http://localhost:5000/login.html";
+	}
+
+
+
+
+
+
+
 	var view_profile_btn = $(".view-profile-btn");
 	var update_profile_btn = $(".update-profile-btn");
 	$(".profile-info-div").css("display","block");

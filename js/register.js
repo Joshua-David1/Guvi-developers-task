@@ -1,5 +1,18 @@
 $(document).ready(function(){
 
+	var sessionId = localStorage.getItem("sessionId");
+	if(sessionId != null){
+		$.post("http://localhost:5000/php/get-session-id.php",{
+			sessionId:sessionId
+		},function(data, status){
+			if(data == "[-]Session Expired"){
+				localStorage.removeItem("sessionId");
+			}else{
+				window.location.href = "http://localhost:5000/profile.html";
+			};
+		});
+	}
+
 	function validateEmail(email){
 		for(var i = 0;i < email.length;i++){
 			if(email[i] == "@"){
@@ -152,7 +165,13 @@ $(document).ready(function(){
 					if(edata == 0 || edata == '0'){
 						$.post("http://localhost:5000/php/register.php",reg_details,function(data, status){
 							if(data){
-								window.location.href = "http://localhost:5000/profile.html";
+								$.post("http://localhost:5000/php/set-session-id.php",{
+										username:username,
+										password:password
+									},function(sdata, status){
+										localStorage.setItem("sessionId",sdata);
+										window.location.href = "http://localhost:5000/profile.html";
+								});
 							}
 							else{
 								alert("[-]Problem");
