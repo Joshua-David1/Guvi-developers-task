@@ -10,8 +10,6 @@ $(document).ready(function(){
 			if(data == "[-]Session Expired"){
 				localStorage.removeItem("sessionId");
 				windows.location.href = "http://localhost:5000/login.html";
-			}else{
-				alert("haha");
 			}
 		});
 	}else{

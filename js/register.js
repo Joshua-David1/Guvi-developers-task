@@ -166,9 +166,10 @@ $(document).ready(function(){
 						$.post("http://localhost:5000/php/register.php",reg_details,function(data, status){
 							if(data){
 								$.post("http://localhost:5000/php/set-session-id.php",{
-										username:username,
-										password:password
+										username:username.val(),
+										password:password.val()
 									},function(sdata, status){
+										console.log(sdata);
 										localStorage.setItem("sessionId",sdata);
 										window.location.href = "http://localhost:5000/profile.html";
 								});
