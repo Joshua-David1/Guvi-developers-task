@@ -9,7 +9,7 @@ $(document).ready(function(){
 		},function(data, status){
 			if(data == "[-]Session Expired"){
 				localStorage.removeItem("sessionId");
-				windows.location.href = "http://localhost:5000/login.html";
+				window.location.href = "http://localhost:5000/login.html";
 			}
 		});
 	}else{
@@ -45,5 +45,12 @@ $(document).ready(function(){
 
 	$(".logout-btn").click(function(){
 		window.location.href = "http://localhost:5000/login.html"
+	});
+
+
+	$(".logout-btn").click(function(){
+		localStorage.removeItem("sessionId");
+		window.location.href = "http://localhost:5000/login.html";
 	})
+
 })
