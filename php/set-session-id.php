@@ -14,7 +14,7 @@ $data = array(
 );
 
 $redis->set('$sessionId', json_encode($data));
-$redis->expire('$sessionId',120);
+$redis->expire('$sessionId',600);
 echo  $sessionId;
 
 ?>
