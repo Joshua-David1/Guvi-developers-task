@@ -58,4 +58,13 @@ type redis-cli to run the redis server
 
 
 
+## MySQL database details
+![mysql-details](https://user-images.githubusercontent.com/69303816/230825731-0d23d708-24a2-4fa7-9684-c42ca1637898.png)
+
+## MongoDb database details
+
+
+![mongodb-details](https://user-images.githubusercontent.com/69303816/230825800-1b5de287-72e0-4200-a32c-1eb57f6388d7.png)
+
+
 
