@@ -1,7 +1,7 @@
 # Technical Task of GUVI!
 
 
-##Requirement
+## Requirements
 
 ->PHP version 8.1.17
 ->Mongodb version 4.4.5
