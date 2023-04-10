@@ -35,10 +35,9 @@ type redis-cli to run the redis server
 
 ## Validation on Register Page
 
-![email-val-reg php](ht![username-val-reg](https://user-images.githubusercontent.com/69303816/230823218-5b786280-2b47-43bc-afd1-5179b0caa56e.png)
+![username-val-reg](https://user-images.githubusercontent.com/69303816/230823691-4637033f-0868-47c3-9308-c0255e4eca86.png)
 
-![username-val-reg](https://user-images.githubusercontent.com/69303816/230823535-b608d6d7-34e3-4339-b301-122ba2deba69.png)
-
+![email-val-reg php](https://user-images.githubusercontent.com/69303816/230823651-d26c116b-9103-4bc4-bef8-faa30d7f16a0.png)
 
 ![phone-val-reg](https://user-images.githubusercontent.com/69303816/230823243-73392356-f709-4a20-9216-0bec6e5df678.png)
 
